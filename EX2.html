@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Q1: Use a loop to display the numbers 0 through 5, each in a separate alert window
+      for (let i = 0; i <= 5; i++) {
+        alert(i);
+      }
+
+      // Q4: Prompt the user for a number in the range 0…100 until valid
+      let validNumber;
+      while (true) {
+        validNumber = parseInt(
+          prompt("Please enter a number between 0 and 100:")
+        );
+        if (validNumber >= 0 && validNumber <= 100) {
+          break;
+        } else {
+          alert("Error: Please enter a number in the range 0…100.");
+        }
+      }
+
+      // Q5: Prompt for an integer, then display the sum of the integers from 0 through the number entered
+      let userInput = parseInt(prompt("Please enter an integer:"));
+      let sum = 0;
+      for (let i = 0; i <= userInput; i++) {
+        sum += i;
+      }
+      alert(`The sum of integers from 0 to ${userInput} is ${sum}.`);
+    </script>
+  </body>
+</html>
