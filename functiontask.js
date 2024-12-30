@@ -1,36 +1,32 @@
-// //EX1
-// // Ask the user for their name
-// let userName = prompt("Please enter your name:");
+// let userName = "";
+// let userGender = "";
+// let userOrder = "";
+// let userAnswers = [];
 
-// // Ask the user for their gender
-// let userGender = prompt("Please enter your gender (male or female):");
-
-// // Welcome message
-
-// while (true) {
-//   if (userGender == "male" || userGender == "female") {
-//     break;
+// function askGender() {
+//   let gender = prompt("Enter your gender (male/female):").toLowerCase();
+//   while (gender !== "male" && gender !== "female") {
+//     gender = prompt(
+//       "Invalid input. Please enter your gender (male/female):"
+//     ).toLowerCase();
 //   }
-//   userGender = prompt("Please enter your gender (male or female):");
+//   return gender;
 // }
-// if (userGender === "male") {
-//   alert(`Welcome Mr. ${userName}`);
-// } else if (userGender === "female") {
-//   alert(`Welcome Ms. ${userName}`);
+// userName = prompt("Enter your name:") || "Guest";
+// userGender = askGender();
+// let title = userGender === "male" ? "Mr." : "Ms.";
+// userAnswers.push(userName, userGender);
+// alert(`Welcome ${title} ${userName}`);
+// userOrder =
+//   prompt("What would you like to order? (shawarma, zenger, burger)") ||
+//   "nothing";
+// alert(`Your ${userOrder} is being prepared!`);
+// console.log(`${userName} ordered ${userOrder}`);
+// userAnswers.push(userOrder);
+// console.log("User details:");
+// for (let i = 0; i < userAnswers.length; i++) {
+//   console.log(userAnswers[i]);
 // }
-// // Ask the user for their order choice
-// let orderChoice = prompt(
-//   "Would you like to order shawarma, zenger, or burger?"
-// );
-
-// // Ask the user to write the name of their order
-// let orderName = prompt("Please write the name of your order:");
-
-// // Alert order preparation message
-// alert(`Your order of ${orderName} is getting prepared.`);
-
-// // Log the user name and order to the console
-// console.log(`User: ${userName}, Order: ${orderName}`);
 
 // // Ask the user to enter a number
 // let userNumber = parseInt(prompt("Please enter a number between 1 and 9:"));
@@ -143,4 +139,24 @@ function sortOrange() {
   return sortedWord;
 }
 
-console.log(sortOrange()); // Output: "Oaegnr"
+console.log(sortOrange());
+
+//q4
+
+let num = prompt("Enter Number");
+let s2 = "";
+
+for (let i = 0; i < num.length; i++) {
+  if (+num[i] % 2 == 0 && +num[i + 1] % 2 == 0) {
+    s2 += num[i] + "-";
+  } else if (+num[i] % 2 == 0 && +num[i + 1] % 2 != 0) s2 += num[i];
+  else s2 += num[i];
+}
+
+console.log(s2);
+
+//q5
+
+function AgeChecker(age) {
+  return age >= 18 ? "The user is Adult" : "The user is Minor";
+}
