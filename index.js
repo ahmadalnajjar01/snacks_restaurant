@@ -1,55 +1,42 @@
-// //Q1
+// JavaScript to handle the form input and update the DOM
+const form = document.getElementById("userForm");
 
-const info = [];
-const items = [];
+form.addEventListener("submit", (event) => {
+  event.preventDefault(); // Prevent the default form submission
 
-let userName = prompt("Enter your Name please :");
-const parentElement = document.getElementById('parentDiv');
-const newParagraph = document.createElement('p');
-newParagraph.textContent = userName;
-parentElement.appendChild(newParagraph);
+  const username = document.getElementById("username").value;
+  const age = document.getElementById("age").value;
+  const gender = document.getElementById("gender").value;
+  const order = document.querySelector('input[name="order"]:checked')?.value;
 
-info.push(userName);
-let Gender;
-
-while (true) {
-  Gender = prompt("Enter Your Gender please:");
-  if (Gender === "male" || Gender === "female") {
-    break;
-  } else {
-    alert("Invalid input. Please enter 'male' or 'female'.");
-  }
-}
-if (Gender === "male") {
-  items.push(Gender);
-  info.push(Gender);
-  
-} else if (Gender === "female") {
-  info.push(Gender);
-  items.push(Gender);
-  
-}
-
-let orderChoice = prompt("Would you like to order shawarma, zinger, or burger");
-
-items.push(orderChoice);
-info.push(orderChoice);
-
-
-
-  const orderedList = document.createElement('ol');
-
-
-  for (let i = 0; i < items.length; i++) {
-      const listItem = document.createElement('li'); 
-      listItem.textContent = items[i]; 
-      orderedList.appendChild(listItem); 
+  if (!username || !age || gender === "Select" || !order) {
+    alert("Please fill out all fields correctly.");
+    return;
   }
 
-  document.getElementById('list-container').appendChild(orderedList);
+  // Display user info on the page
+  const parentElement = document.getElementById("parentDiv");
+  parentElement.textContent = `Name: ${username}, Age: ${age}, Gender: ${gender}`;
 
-for (let i = 0; i < info.length; i++) {
+  // Display order list
+  const orderedList = document.createElement("ol");
+  [
+    "Name: " + username,
+    "Age: " + age,
+    "Gender: " + gender,
+    "Order: " + order,
+  ].forEach((item) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = item;
+    orderedList.appendChild(listItem);
+  });
 
-  console.log(info[i]);
+  const listContainer = document.getElementById("list-container");
+  listContainer.innerHTML = ""; // Clear previous content
+  listContainer.appendChild(orderedList);
 
-}
+  console.log(`Name: ${username}`);
+  console.log(`Age: ${age}`);
+  console.log(`Gender: ${gender}`);
+  console.log(`Order: ${order}`);
+});
